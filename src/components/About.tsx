@@ -12,18 +12,14 @@ export default function About() {
         <div className="grid items-center gap-10 sm:gap-16 lg:grid-cols-12 lg:gap-20">
           <ScrollReveal className="lg:col-span-5" direction="left">
             <div className="relative pb-4 sm:pb-0">
-              <div className="coach-frame-glow relative aspect-[4/5] max-w-md overflow-hidden rounded-2xl sm:max-w-none">
+              <div className="coach-frame-glow relative aspect-[4/5] max-w-md overflow-hidden rounded-2xl bg-[#0a0a0c] sm:max-w-none">
                 <Image
                   src={siteConfig.images.coach}
                   alt={`${siteConfig.coach} — Fitness Coach & Founder of SK Fitness`}
                   fill
-                  className="coach-photo-about object-cover"
+                  className="object-contain object-bottom"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(10,10,10,0.55)_100%)]" />
-                <div className="absolute inset-0 bg-coral/[0.04] mix-blend-soft-light" />
               </div>
               <div className="absolute -bottom-4 right-0 premium-card premium-card-accent rounded-2xl p-5 sm:-bottom-8 sm:right-4 sm:p-6 lg:right-8">
                 <p className="font-display text-2xl italic text-coral sm:text-3xl">4+</p>

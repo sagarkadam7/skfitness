@@ -16,7 +16,7 @@ export default function PremiumCTA() {
               src={siteConfig.images.coach}
               alt=""
               fill
-              className="coach-photo-bg object-cover"
+              className="object-cover object-center opacity-25 blur-sm scale-105"
               sizes="100vw"
               aria-hidden
             />
