@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
     type: "website",
+    images: [{ url: siteConfig.images.hero, alt: `${siteConfig.coach} — SK Fitness Coach` }],
   },
 };
 

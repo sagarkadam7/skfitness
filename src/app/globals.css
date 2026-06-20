@@ -242,6 +242,31 @@ body::before {
   background: radial-gradient(ellipse at center, transparent 0%, var(--background) 75%);
 }
 
+/* Coach photography — editorial grade */
+.coach-photo-hero {
+  filter: contrast(1.06) saturate(0.88) brightness(0.94);
+  transform: scale(1.02);
+}
+
+.coach-photo-about {
+  filter: contrast(1.08) saturate(0.75) brightness(0.88);
+  object-position: center 18%;
+  transform: scale(1.06);
+}
+
+.coach-photo-bg {
+  filter: contrast(1.05) saturate(0.6) brightness(0.5) blur(2px);
+  object-position: center 22%;
+  transform: scale(1.08);
+}
+
+.coach-frame-glow {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 32px 64px -16px rgba(0, 0, 0, 0.65),
+    0 0 80px -24px color-mix(in srgb, var(--coral) 18%, transparent);
+}
+
 /* Marquee */
 @keyframes marquee {
   0% { transform: translateX(0); }

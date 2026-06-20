@@ -13,6 +13,10 @@ export const siteConfig = {
     youtube: "https://youtube.com/@skfitness",
     linkedin: "https://linkedin.com/in/sagarkadam",
   },
+  images: {
+    hero: "/coach/sagar-hero.png",
+    coach: "/coach/sagar-coach.png",
+  },
 };
 
 export const stats = [

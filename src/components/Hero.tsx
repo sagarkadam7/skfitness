@@ -107,17 +107,18 @@ export default function Hero() {
             <div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:max-w-none">
               <div className="pointer-events-none absolute inset-2 -z-10 rounded-2xl border border-white/10 sm:rounded-3xl" aria-hidden />
 
-              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-2xl sm:aspect-[4/5] sm:rounded-3xl">
+              <div className="coach-frame-glow relative aspect-[5/4] w-full overflow-hidden rounded-2xl sm:aspect-[4/5] sm:rounded-3xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=900&h=1100&fit=crop&q=85"
-                  alt={`${siteConfig.coach} - Premium Fitness Coach`}
+                  src={siteConfig.images.hero}
+                  alt={`${siteConfig.coach} — Premium Fitness Coach`}
                   fill
-                  className="object-cover object-[center_20%] sm:object-center"
+                  className="coach-photo-hero object-cover object-[center_35%] sm:object-[center_30%]"
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent lg:from-background/40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/20 lg:from-background/50" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,rgba(240,142,126,0.12),transparent_55%)]" />
               </div>
 
               <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-xs">

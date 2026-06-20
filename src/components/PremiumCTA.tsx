@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { SplitHeadline } from "@/components/ui/EditorialHeadline";
+import { siteConfig } from "@/lib/data";
 
 export default function PremiumCTA() {
   return (
@@ -9,8 +11,18 @@ export default function PremiumCTA() {
       <ScrollReveal>
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-2xl px-4 sm:rounded-3xl sm:px-6 lg:px-8">
           <div className="editorial-arcs absolute inset-0 opacity-60" />
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80')] bg-cover bg-center opacity-20" />
-          <div className="absolute inset-0 bg-background/90" />
+          <div className="absolute inset-0 overflow-hidden">
+            <Image
+              src={siteConfig.images.coach}
+              alt=""
+              fill
+              className="coach-photo-bg object-cover"
+              sizes="100vw"
+              aria-hidden
+            />
+          </div>
+          <div className="absolute inset-0 bg-background/88" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
 
           <div className="relative px-5 py-12 text-center sm:px-16 sm:py-20">
             <p className="section-label justify-center">Limited Availability</p>
