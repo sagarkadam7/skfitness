@@ -5,6 +5,7 @@ import { Calendar, Send, CheckCircle2, ArrowRight, ArrowLeft, MessageCircle } fr
 import SectionHeader from "@/components/ui/SectionHeader";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { siteConfig } from "@/lib/data";
+import { buildWhatsAppUrl } from "@/lib/lead";
 
 const goals = [
   { id: "Fat Loss", label: "Lose Fat", emoji: "🔥" },
@@ -46,6 +47,7 @@ export default function BookingForm() {
   const [step, setStep] = useState(0);
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
@@ -102,12 +104,28 @@ export default function BookingForm() {
     setStep((s) => Math.max(s - 1, 0));
   };
 
-  const submit = () => {
+  const submit = async () => {
     if (!validateStep(0) || !validateStep(1)) {
       setStep(form.name && form.phone ? (form.goal ? 2 : 1) : 0);
       return;
     }
+
+    setSubmitting(true);
+    const payload = { ...form, type: "booking" as const };
+
+    try {
+      await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } catch {
+      // WhatsApp fallback still works if email API fails
+    }
+
+    window.open(buildWhatsAppUrl(payload), "_blank", "noopener,noreferrer");
     setSubmitted(true);
+    setSubmitting(false);
   };
 
   if (submitted) {
@@ -117,9 +135,18 @@ export default function BookingForm() {
           <CheckCircle2 className="mx-auto h-16 w-16 text-coral" />
           <h2 className="mt-6 font-display text-3xl font-bold">You&apos;re all set!</h2>
           <p className="mt-4 text-muted">
-            Thanks, {form.name.split(" ")[0]}! I&apos;ll WhatsApp or call you within 24 hours to
-            book your free discovery call.
+            Thanks, {form.name.split(" ")[0]}! Your details were sent — I&apos;ll WhatsApp or call
+            you within 24 hours to book your free discovery call.
           </p>
+          <a
+            href={buildWhatsAppUrl({ ...form, type: "booking" })}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary mt-8 inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-xs font-semibold uppercase tracking-widest"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Open WhatsApp again
+          </a>
         </div>
       </section>
     );
@@ -375,10 +402,11 @@ export default function BookingForm() {
                   <button
                     type="button"
                     onClick={submit}
-                    className="btn-primary flex flex-1 items-center justify-center gap-2 rounded-full py-3.5 text-xs font-semibold uppercase tracking-widest"
+                    disabled={submitting}
+                    className="btn-primary flex flex-1 items-center justify-center gap-2 rounded-full py-3.5 text-xs font-semibold uppercase tracking-widest disabled:opacity-60"
                   >
                     <Send className="h-4 w-4" />
-                    Book Free Call
+                    {submitting ? "Sending…" : "Book Free Call"}
                   </button>
                 )}
               </div>

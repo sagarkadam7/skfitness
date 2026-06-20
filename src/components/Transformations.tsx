@@ -1,9 +1,8 @@
-import Image from "next/image";
-import { ArrowRight, Quote } from "lucide-react";
+import { ArrowRight, ArrowRightLeft, Quote } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { EditorialAccent } from "@/components/ui/EditorialHeadline";
-import { transformations } from "@/lib/data";
+import { clientResults } from "@/lib/data";
 
 export default function Transformations() {
   return (
@@ -17,66 +16,65 @@ export default function Transformations() {
             label="Proven Results"
             title={
               <>
-                Transformations That{" "}
+                Outcomes That{" "}
                 <EditorialAccent>Speak Louder Than Words</EditorialAccent>
               </>
             }
-            description="Real clients. Real discipline. Real results — achieved through premium coaching, not shortcuts."
+            description="Real clients. Real discipline. Real numbers — achieved through premium coaching, not shortcuts. Photos shared with permission when available."
           />
         </ScrollReveal>
 
         <div className="mt-12 grid gap-5 sm:mt-20 sm:grid-cols-2 sm:gap-8">
-          {transformations.map((item, i) => (
+          {clientResults.map((item, i) => (
             <ScrollReveal key={item.name} delay={i * 0.1}>
-              <article className="group premium-card premium-card-hover overflow-hidden rounded-2xl">
-                <div className="grid grid-cols-2">
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    <Image
-                      src={item.beforeImage}
-                      alt={`${item.name} before`}
-                      fill
-                      className="object-cover grayscale transition-all duration-700 group-hover:grayscale-[30%] group-hover:scale-105"
-                      sizes="25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                    <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
-                      <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-white/60 sm:text-[10px] sm:tracking-[0.2em]">Before</p>
-                      <p className="font-display text-sm font-bold sm:text-lg">{item.before}</p>
-                    </div>
+              <article className="group premium-card premium-card-hover flex h-full flex-col rounded-2xl p-5 sm:p-8">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <h3 className="font-display text-base font-bold sm:text-lg">{item.name}</h3>
+                    <p className="mt-1 text-xs text-gold sm:text-sm">{item.goal}</p>
                   </div>
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    <Image
-                      src={item.afterImage}
-                      alt={`${item.name} after`}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                    <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
-                      <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-gold sm:text-[10px] sm:tracking-[0.2em]">After</p>
-                      <p className="font-display text-sm font-bold text-gold-light sm:text-lg">{item.after}</p>
+                  <span className="shrink-0 rounded-full border border-card-border px-3 py-1 text-[10px] uppercase tracking-widest text-muted">
+                    {item.duration}
+                  </span>
+                </div>
+
+                <div className="mt-6 rounded-xl border border-card-border bg-background/60 p-4 sm:mt-8 sm:p-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="min-w-0 flex-1 text-center">
+                      <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-muted sm:text-[10px]">
+                        Started
+                      </p>
+                      <p className="mt-1 font-display text-lg font-bold text-muted sm:text-xl">
+                        {item.before}
+                      </p>
+                    </div>
+                    <div className="flex shrink-0 flex-col items-center gap-1">
+                      <ArrowRightLeft className="h-4 w-4 text-gold/60" />
+                      <span className="rounded-full bg-gold/15 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold">
+                        {item.highlight}
+                      </span>
+                    </div>
+                    <div className="min-w-0 flex-1 text-center">
+                      <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-gold sm:text-[10px]">
+                        Result
+                      </p>
+                      <p className="mt-1 font-display text-lg font-bold text-gold-light sm:text-xl">
+                        {item.after}
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="p-5 sm:p-8">
-                  <div className="flex items-start justify-between gap-3 sm:gap-4">
-                    <div className="min-w-0">
-                      <h3 className="font-display text-base font-bold sm:text-lg">{item.name}</h3>
-                      <p className="mt-1 text-xs text-gold sm:text-sm">{item.goal}</p>
-                    </div>
-                    <span className="shrink-0 rounded-full border border-card-border px-3 py-1 text-[10px] uppercase tracking-widest text-muted">
-                      {item.duration}
-                    </span>
-                  </div>
-                  <div className="mt-5 flex gap-3">
-                    <Quote className="mt-0.5 h-4 w-4 shrink-0 text-gold/40" />
-                    <p className="font-serif text-sm italic leading-relaxed text-muted">
-                      &ldquo;{item.quote}&rdquo;
-                    </p>
-                  </div>
+                <div className="mt-5 flex flex-1 gap-3 sm:mt-6">
+                  <Quote className="mt-0.5 h-4 w-4 shrink-0 text-gold/40" />
+                  <p className="font-serif text-sm italic leading-relaxed text-muted">
+                    &ldquo;{item.quote}&rdquo;
+                  </p>
                 </div>
+
+                <p className="mt-4 text-[10px] uppercase tracking-widest text-muted/70">
+                  {item.program} plan
+                </p>
               </article>
             </ScrollReveal>
           ))}

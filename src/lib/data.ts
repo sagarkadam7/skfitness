@@ -179,36 +179,36 @@ export const pricingOffers = [
   },
 ];
 
-export const transformations = [
+export const clientResults = [
   {
     name: "Rahul M.",
-    goal: "Lost 18 kg in 5 months",
+    goal: "Fat loss & body recomposition",
     quote: "Sagar's program changed my relationship with food and training forever.",
     before: "92 kg",
     after: "74 kg",
+    highlight: "−18 kg",
     duration: "5 months",
-    beforeImage: "/transformations/rahul-before.jpg",
-    afterImage: "/transformations/rahul-after.jpg",
+    program: "Premium",
   },
   {
     name: "Priya S.",
-    goal: "Built lean muscle & strength",
+    goal: "Strength & muscle building",
     quote: "I finally feel strong and confident. The check-ins kept me accountable every week.",
     before: "Beginner",
     after: "Deadlift 80 kg",
+    highlight: "+35 kg lift",
     duration: "6 months",
-    beforeImage: "/transformations/priya-before.jpg",
-    afterImage: "/transformations/priya-after.jpg",
+    program: "Premium",
   },
   {
     name: "Arjun K.",
-    goal: "Corporate wellness transformation",
+    goal: "Corporate wellness",
     quote: "Flexible plans that fit my travel schedule. Down 12 kg while gaining energy.",
     before: "88 kg",
     after: "76 kg",
+    highlight: "−12 kg",
     duration: "4 months",
-    beforeImage: "/transformations/arjun-before.jpg",
-    afterImage: "/transformations/arjun-after.jpg",
+    program: "Starter",
   },
   {
     name: "Neha R.",
@@ -216,9 +216,9 @@ export const transformations = [
     quote: "Safe, progressive programming that respected my recovery. I feel like myself again.",
     before: "Post-partum",
     after: "Fit & strong",
+    highlight: "Full return",
     duration: "8 months",
-    beforeImage: "/transformations/neha-before.jpg",
-    afterImage: "/transformations/neha-after.jpg",
+    program: "Elite",
   },
 ];
 

@@ -5,6 +5,25 @@ import { useState } from "react";
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setLoading(true);
+    try {
+      await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "newsletter", email }),
+      });
+    } catch {
+      // Still show success — user can retry via contact
+    }
+    setDone(true);
+    setLoading(false);
+  };
 
   return (
     <section className="border-t border-card-border py-12 sm:py-16">
@@ -15,10 +34,22 @@ export default function Newsletter() {
         {done ? (
           <p className="mt-6 font-semibold text-gold">Welcome to the inner circle.</p>
         ) : (
-          <form onSubmit={(e) => { e.preventDefault(); if (email) setDone(true); }} className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:justify-center">
-            <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com"
-              className="w-full rounded-full border border-card-border bg-background/50 px-6 py-3.5 text-base outline-none focus:border-gold/50 sm:w-72 sm:text-sm" />
-            <button type="submit" className="btn-primary w-full rounded-full px-8 py-3.5 text-xs font-semibold uppercase tracking-widest sm:w-auto">Subscribe</button>
+          <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:justify-center">
+            <input
+              required
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="your@email.com"
+              className="w-full rounded-full border border-card-border bg-background/50 px-6 py-3.5 text-base outline-none focus:border-gold/50 sm:w-72 sm:text-sm"
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn-primary w-full rounded-full px-8 py-3.5 text-xs font-semibold uppercase tracking-widest disabled:opacity-60 sm:w-auto"
+            >
+              {loading ? "Joining…" : "Subscribe"}
+            </button>
           </form>
         )}
       </div>

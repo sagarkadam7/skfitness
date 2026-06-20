@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
+import JsonLd from "@/components/JsonLd";
 import { siteConfig } from "@/lib/data";
 
 const playfair = Playfair_Display({
@@ -38,8 +40,18 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
     type: "website",
+    url: "https://skfitness-ashen.vercel.app",
+    siteName: siteConfig.name,
+    locale: "en_IN",
     images: [{ url: siteConfig.images.hero, alt: `${siteConfig.coach} — SK Fitness Coach` }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    images: [siteConfig.images.hero],
+  },
+  alternates: { canonical: "https://skfitness-ashen.vercel.app" },
 };
 
 export default function RootLayout({
@@ -50,7 +62,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable} scroll-smooth`}>
       <body className="min-h-screen overflow-x-clip bg-background text-foreground antialiased">
+        <JsonLd />
         {children}
+        <Analytics />
       </body>
     </html>
   );

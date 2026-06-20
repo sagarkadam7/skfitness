@@ -103,8 +103,8 @@ export default function Footer() {
         <div className="mt-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-xs text-muted">© {year} {siteConfig.name}. Crafted for {siteConfig.coach}.</p>
           <div className="flex gap-8 text-xs text-muted">
-            <Link href="#" className="hover:text-gold">Privacy</Link>
-            <Link href="#" className="hover:text-gold">Terms</Link>
+            <Link href="/privacy" className="hover:text-gold">Privacy</Link>
+            <Link href="/terms" className="hover:text-gold">Terms</Link>
           </div>
         </div>
       </div>
