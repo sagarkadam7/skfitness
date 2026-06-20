@@ -23,6 +23,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://skfitness-ashen.vercel.app"),
   title: `${siteConfig.name} | Premium Online Fitness Coaching — ${siteConfig.coach}`,
   description: siteConfig.description,
   keywords: [

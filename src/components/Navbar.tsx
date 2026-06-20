@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import FitToolsIcon from "@/components/icons/FitToolsIcon";
+import SkMarkIcon from "@/components/icons/SkMarkIcon";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -38,8 +40,11 @@ export default function Navbar() {
       style={{ paddingTop: "max(0px, env(safe-area-inset-top))" }}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
-        <Link href="/" className="shrink-0 font-display text-lg font-semibold tracking-tight sm:text-xl lg:text-2xl">
-          SK<span className="italic text-coral">Fitness</span>
+        <Link href="/" className="flex shrink-0 items-center gap-2.5 font-display text-lg font-semibold tracking-tight sm:text-xl lg:text-2xl">
+          <SkMarkIcon className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" />
+          <span>
+            SK<span className="italic text-coral">Fitness</span>
+          </span>
         </Link>
 
         <ul className="hidden items-center gap-8 xl:gap-10 lg:flex">
@@ -55,7 +60,7 @@ export default function Navbar() {
           ))}
           <li>
             <Link href="#tools" className={toolsLinkClass}>
-              <Sparkles className="h-3.5 w-3.5 transition-transform group-hover:rotate-12" />
+              <FitToolsIcon className="h-3.5 w-3.5 transition-transform group-hover:scale-110" />
               Free Fit Tools
             </Link>
           </li>
@@ -104,7 +109,7 @@ export default function Navbar() {
               className={`${toolsLinkClass} w-full justify-center py-4 text-sm`}
               onClick={() => setOpen(false)}
             >
-              <Sparkles className="h-4 w-4" />
+              <FitToolsIcon className="h-4 w-4" />
               Free Fit Tools
               <span className="ml-1 rounded-full bg-coral/20 px-2 py-0.5 text-[10px] font-semibold normal-case tracking-normal text-coral-soft">
                 BMI · Macros · More

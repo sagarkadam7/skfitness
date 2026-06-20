@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import FitToolsIcon from "@/components/icons/FitToolsIcon";
 
 export default function MobileBottomBar() {
   return (
@@ -12,7 +12,7 @@ export default function MobileBottomBar() {
           href="#tools"
           className="btn-outline flex flex-1 items-center justify-center gap-1.5 rounded-full py-3.5 text-[10px] font-bold uppercase tracking-wider"
         >
-          <Sparkles className="h-3.5 w-3.5 text-coral" />
+          <FitToolsIcon className="h-3.5 w-3.5 text-coral" />
           Tools
         </Link>
         <Link

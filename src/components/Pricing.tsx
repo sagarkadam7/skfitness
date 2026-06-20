@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Check, Sparkles } from "lucide-react";
+import { Check } from "lucide-react";
+import PackageOfferIcon from "@/components/icons/PackageOfferIcon";
 import SectionHeader from "@/components/ui/SectionHeader";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { EditorialAccent } from "@/components/ui/EditorialHeadline";
@@ -73,7 +74,9 @@ export default function Pricing() {
           <div className="mt-16 sm:mt-28">
             <div className="mx-auto max-w-2xl text-center">
               <p className="section-label justify-center">
-                <Sparkles className="mr-1 inline h-3.5 w-3.5 text-coral" />
+                <span className="mr-1 inline-flex text-coral">
+                  <PackageOfferIcon className="h-3.5 w-3.5" />
+                </span>
                 Package Offers
               </p>
               <h3 className="mt-4 font-display text-2xl font-semibold sm:mt-5 sm:text-3xl lg:text-4xl">

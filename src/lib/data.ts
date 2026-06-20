@@ -15,7 +15,7 @@ export const siteConfig = {
   },
   images: {
     hero: "/coach/sagar-hero.png",
-    coach: "/coach/sagar-coach-premium.png",
+    coach: "/coach/sagar-coach.png",
   },
 };
 
