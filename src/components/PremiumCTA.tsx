@@ -13,10 +13,10 @@ export default function PremiumCTA() {
           <div className="editorial-arcs absolute inset-0 opacity-60" />
           <div className="absolute inset-0 overflow-hidden">
             <Image
-              src={siteConfig.images.coach}
+              src={siteConfig.images.hero}
               alt=""
               fill
-              className="object-cover object-center opacity-25 blur-sm scale-105"
+              className="object-cover object-center opacity-20 blur-sm scale-105"
               sizes="100vw"
               aria-hidden
             />
